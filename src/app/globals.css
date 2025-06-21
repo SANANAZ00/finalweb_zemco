@@ -89,18 +89,6 @@
     @apply border-border transition-all duration-200;
   }
 
-  *:hover {
-    @apply ring-2 ring-ring ring-opacity-20;
-  }
-
-  *:focus {
-    @apply outline-none ring-2 ring-ring ring-offset-2 ring-offset-background;
-  }
-
-  *:active {
-    @apply ring-2 ring-ring ring-opacity-70 scale-[0.98];
-  }
-
   html, body {
     @apply h-full overflow-auto;
   }

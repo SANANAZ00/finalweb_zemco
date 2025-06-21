@@ -9,6 +9,7 @@ import Link from 'next/link';
 export default function ProductDetailPage({ params }: { params: { id: string } }) {
   const [product, setProduct] = useState<any>(null);
   const [relatedProducts, setRelatedProducts] = useState<any[]>([]);
+  const [toast, setToast] = useState('');
 
   useEffect(() => {
     const fetchProductData = async () => {
@@ -53,7 +54,9 @@ export default function ProductDetailPage({ params }: { params: { id: string } }
     const cart = JSON.parse(localStorage.getItem('cart') || '[]');
     const updatedCart = [...cart, product];
     localStorage.setItem('cart', JSON.stringify(updatedCart));
-    alert(`${product.title} added to cart!`);
+    setToast(`${product.title} added to cart!`);
+    window.dispatchEvent(new Event('cartUpdated'));
+    setTimeout(() => setToast(''), 2000);
   };
 
   return (
@@ -101,6 +104,12 @@ export default function ProductDetailPage({ params }: { params: { id: string } }
           </div>
         ))}
       </div>
+
+      {toast && (
+        <div className="fixed bottom-6 left-1/2 -translate-x-1/2 bg-pink-600 text-white px-6 py-3 rounded-lg shadow-lg z-50 animate-fade-in">
+          {toast}
+        </div>
+      )}
     </section>
   );
 }

@@ -9,10 +9,10 @@ export default function HomePage() {
   return (
     <main className="bg-pink-50 min-h-screen">
       <Navbar />
-      <HeroSection />
-      <FeaturedCategories />
+      <HeroSection id="home" />
+      <FeaturedCategories id="categories" />
       <ProductGrid />
-      <NewsletterSignup />
+      <NewsletterSignup id="contact" />
       <Footer />
     </main>
   );

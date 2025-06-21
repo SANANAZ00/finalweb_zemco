@@ -3,15 +3,15 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 const categories = [
-  { name: 'Skincare', image: '/skincare.jpg', link: '/categories/skincare' },
-  { name: 'Hair', image: '/hair.jpg', link: '/categories/hair' },
-  { name: 'Bags', image: '/bag.jpg', link: '/categories/bags' },
-  { name: 'Jewelry', image: '/jewellery.jpg', link: '/categories/jewelry' },
+  { name: 'Skincare', image: '/skincare.jpg', link: '/shop?category=skincare' },
+  { name: 'Hair', image: '/hair.jpg', link: '/shop?category=hair' },
+  { name: 'Bags', image: '/bag.jpg', link: '/shop?category=bags' },
+  { name: 'Jewelry', image: '/jewellery.jpg', link: '/shop?category=jewelry' },
 ];
 
-export default function FeaturedCategories() {
+export default function FeaturedCategories({ id }: { id?: string }) {
   return (
-    <section className="py-16 bg-white">
+    <section id={id} className="py-16 bg-white">
       <div className="max-w-7xl mx-auto px-4">
         <h2 className="text-3xl font-bold text-gray-800 mb-10 text-center">
           Featured <span className="text-pink-600">Categories</span>

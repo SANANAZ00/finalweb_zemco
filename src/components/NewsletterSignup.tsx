@@ -1,7 +1,7 @@
 // src/app/components/NewsletterSignup.tsx
-export default function NewsletterSignup() {
+export default function NewsletterSignup({ id }: { id?: string }) {
     return (
-      <section className="bg-pink-100 py-16 px-4">
+      <section id={id} className="bg-pink-100 py-16 px-4">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl font-bold text-gray-800 mb-4">
             Stay in the <span className="text-pink-600">Glow!</span>

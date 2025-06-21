@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import SessionWrapper from "@/components/SessionProviderWrapper";
 import { Providers } from './providers';
 import Script from 'next/script';
 
@@ -23,9 +22,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.variable} font-sans antialiased interactive-element`}>
-        <SessionWrapper>
           <Providers>{children}</Providers>
-        </SessionWrapper>
         <Script src="/interactive.js" />
       </body>
     </html>

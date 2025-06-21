@@ -7,10 +7,12 @@ import { Heart } from 'lucide-react';
 import Link from 'next/link';
 
 interface Product {
-  id: string;
+  id?: string;
+  _id?: string;
   title: string;
-  image: string;
-  price: string;
+  image?: string;
+  imageUrl?: string;
+  price: string | number;
   category: string;
 }
 
@@ -21,6 +23,7 @@ interface ProductCardProps {
 export default function ProductCard({ product }: ProductCardProps) {
   const [wishlist, setWishlist] = useState<string[]>([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [toast, setToast] = useState('');
 
   useEffect(() => {
     const stored = JSON.parse(localStorage.getItem('wishlist') || '[]');
@@ -42,7 +45,9 @@ export default function ProductCard({ product }: ProductCardProps) {
     const cart = JSON.parse(localStorage.getItem('cart') || '[]');
     const updatedCart = [...cart, product];
     localStorage.setItem('cart', JSON.stringify(updatedCart));
-    alert(`${product.title} added to cart!`);
+    setToast(`${product.title} added to cart!`);
+    window.dispatchEvent(new Event('cartUpdated'));
+    setTimeout(() => setToast(''), 2000);
   };
 
   const isWishlisted = wishlist.includes(product.id);
@@ -52,7 +57,7 @@ export default function ProductCard({ product }: ProductCardProps) {
       <div className="relative border rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 group bg-white">
         <div className="relative w-full h-64 overflow-hidden">
           <Image
-            src={product.image}
+            src={product.imageUrl || product.image || '/placeholder.jpg'}
             alt={product.title}
             fill
             className="object-cover group-hover:scale-110 transition-transform duration-300"
@@ -74,7 +79,7 @@ export default function ProductCard({ product }: ProductCardProps) {
        
         <div className="p-4 space-y-1">
           <h3 className="text-lg font-semibold text-gray-800">{product.title}</h3>
-          <p className="text-pink-600 font-bold text-md">{product.price}</p>
+          <p className="text-pink-600 font-bold text-md">{typeof product.price === 'number' ? `$${product.price}` : product.price}</p>
 
           {/* Static rating stars */}
           <div className="flex gap-1 text-yellow-400 text-sm">
@@ -106,9 +111,9 @@ export default function ProductCard({ product }: ProductCardProps) {
         <div className="fixed inset-0 flex items-center justify-center p-4">
           <Dialog.Panel className="w-full max-w-md rounded-2xl bg-white p-6 shadow-lg space-y-4">
             <Dialog.Title className="text-lg font-semibold">{product.title}</Dialog.Title>
-            <Image src={product.image} alt={product.title} width={400} height={300} className="rounded" />
+            <Image src={product.imageUrl || product.image || '/placeholder.jpg'} alt={product.title} width={400} height={300} className="rounded" />
             <p className="text-gray-600 text-sm">Category: <span className="capitalize">{product.category}</span></p>
-            <p className="text-pink-600 text-lg font-bold">{product.price}</p>
+            <p className="text-pink-600 text-lg font-bold">{typeof product.price === 'number' ? `$${product.price}` : product.price}</p>
             <button
               onClick={() => {
                 addToCart();
@@ -121,6 +126,11 @@ export default function ProductCard({ product }: ProductCardProps) {
           </Dialog.Panel>
         </div>
       </Dialog>
+      {toast && (
+        <div className="fixed bottom-6 left-1/2 -translate-x-1/2 bg-pink-600 text-white px-6 py-3 rounded-lg shadow-lg z-50 animate-fade-in">
+          {toast}
+        </div>
+      )}
     </>
   );
 }

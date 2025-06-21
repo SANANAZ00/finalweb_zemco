@@ -1,55 +1,50 @@
 'use client';
 
 import ProductCard from '@/components/ProductCard';
+import { sanityClient } from '@/sanity/client';
+import { useEffect, useState } from 'react';
 
 interface Product {
-  id: string;
+  _id: string;
   title: string;
-  image: string;
-  price: string;
+  imageUrl: string;
+  price: number;
   category: string;
+  description?: string;
 }
 
-const dummyProducts: Product[] = [
-  {
-    id: '1',
-    title: 'Blush Beauty Cream',
-    image: '/blush.jpg',
-    price: '$25',
-    category: 'skincare',
-  },
-  {
-    id: '2',
-    title: 'Gold Drop Earrings',
-    image: '/jewellery.jpg',
-    price: '$45',
-    category: 'jewelry',
-  },
-  {
-    id: '3',
-    title: 'Lip Shine Gloss',
-    image: '/product_1.jpg',
-    price: '$18',
-    category: 'cosmetics',
-  },
-  {
-    id: '4',
-    title: 'Luxury Hair Oil',
-    image: '/hair.jpg',
-    price: '$30',
-    category: 'skincare',
-  },
-];
-
 export default function ShopPage() {
+  const [products, setProducts] = useState<Product[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+      const data = await sanityClient.fetch(`*[_type == "product"]{
+        _id,
+        title,
+        price,
+        category,
+        description,
+        "imageUrl": image.asset->url
+      }`);
+      setProducts(data);
+      setLoading(false);
+    };
+    fetchProducts();
+  }, []);
+
   return (
     <section className="min-h-screen p-6 bg-white">
       <h1 className="text-3xl font-bold text-center text-gray-800 mb-6">Shop All Products</h1>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-6">
-        {dummyProducts.map((product) => (
-          <ProductCard key={product.id} product={product} />
-        ))}
-      </div>
+      {loading ? (
+        <div className="text-center">Loading products...</div>
+      ) : (
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-6">
+          {products.map((product) => (
+            <ProductCard key={product._id} product={product} />
+          ))}
+        </div>
+      )}
     </section>
   );
 }
