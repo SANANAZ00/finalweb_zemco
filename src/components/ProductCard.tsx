@@ -31,11 +31,14 @@ export default function ProductCard({ product }: ProductCardProps) {
   }, []);
 
   const toggleWishlist = () => {
+    const productId = product._id || product.id;
+    if (!productId) return;
+
     let updated = [...wishlist];
-    if (wishlist.includes(product.id)) {
-      updated = updated.filter((id) => id !== product.id);
+    if (wishlist.includes(productId)) {
+      updated = updated.filter((id) => id !== productId);
     } else {
-      updated.push(product.id);
+      updated.push(productId);
     }
     setWishlist(updated);
     localStorage.setItem('wishlist', JSON.stringify(updated));
@@ -50,7 +53,8 @@ export default function ProductCard({ product }: ProductCardProps) {
     setTimeout(() => setToast(''), 2000);
   };
 
-  const isWishlisted = wishlist.includes(product.id);
+  const productId = product._id || product.id;
+  const isWishlisted = productId ? wishlist.includes(productId) : false;
 
   return (
     <>
