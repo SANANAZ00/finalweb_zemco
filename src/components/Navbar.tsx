@@ -240,7 +240,18 @@ function CartDrawer({ onClose }: { onClose: () => void }) {
         {cart.length > 0 && (
           <div className="mt-4 pt-4 border-t border-gray-200 flex justify-between items-center">
             <span className="text-lg font-bold text-gray-800">Total:</span>
-            <span className="text-lg font-bold text-pink-600">${cart.reduce((sum, item) => sum + (parseFloat(item.price.replace(/[^\d.-]/g, '')) || 0), 0).toFixed(2)}</span>
+            <span className="text-lg font-bold text-pink-600">
+              ${cart.reduce((sum, item) => {
+                let price = item.price;
+                if (typeof price === 'string') {
+                  price = parseFloat(price.replace(/[^0-9.-]/g, '')) || 0;
+                }
+                if (typeof price === 'number') {
+                  return sum + price;
+                }
+                return sum;
+              }, 0).toFixed(2)}
+            </span>
           </div>
         )}
         <button

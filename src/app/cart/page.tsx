@@ -55,7 +55,13 @@ export default function CartPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {cartItems.map((item) => (
               <div key={item.id} className="flex gap-4 p-4 border rounded-xl shadow bg-white">
-                <Image src={item.image} alt={item.title} width={100} height={100} className="rounded-md object-cover" />
+                <Image
+                  src={item.imageUrl || item.image || '/placeholder.jpg'}
+                  alt={item.title}
+                  width={100}
+                  height={100}
+                  className="rounded-md object-cover"
+                />
                 <div className="flex flex-col justify-between">
                   <div>
                     <h2 className="font-semibold text-gray-800">{item.title}</h2>

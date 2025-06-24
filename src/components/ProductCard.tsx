@@ -46,7 +46,11 @@ export default function ProductCard({ product }: ProductCardProps) {
 
   const addToCart = () => {
     const cart = JSON.parse(localStorage.getItem('cart') || '[]');
-    const updatedCart = [...cart, product];
+    const productToAdd = {
+      ...product,
+      image: product.imageUrl || product.image || '/placeholder.jpg',
+    };
+    const updatedCart = [...cart, productToAdd];
     localStorage.setItem('cart', JSON.stringify(updatedCart));
     setToast(`${product.title} added to cart!`);
     window.dispatchEvent(new Event('cartUpdated'));

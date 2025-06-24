@@ -22,7 +22,7 @@ export default function Footer() {
           <h4 className="text-lg font-semibold mb-3">Quick Links</h4>
           <ul className="space-y-2 text-sm">
             <li><Link href="/" className="hover:text-pink-600 transition">Home</Link></li>
-            <li><Link href="/products" className="hover:text-pink-600 transition">Shop</Link></li>
+            <li><Link href="/shop" className="hover:text-pink-600 transition">Shop</Link></li>
             <li><Link href="/about" className="hover:text-pink-600 transition">About Us</Link></li>
             <li><Link href="/contact" className="hover:text-pink-600 transition">Contact</Link></li>
           </ul>
@@ -32,8 +32,8 @@ export default function Footer() {
         <div>
           <h4 className="text-lg font-semibold mb-3">Contact Us</h4>
           <ul className="text-sm space-y-2">
-            <li>Email: support@zemcollections.com</li>
-            <li>Phone: +92 300 0000000</li>
+            <li>Email: ifrahzemco@gmail.com</li>
+            <li>Phone: +92 331 3358538</li>
             <li>Karachi, Pakistan</li>
           </ul>
         </div>
@@ -42,9 +42,8 @@ export default function Footer() {
         <div>
           <h4 className="text-lg font-semibold mb-3">Follow Us</h4>
           <div className="flex space-x-4">
-            <Link href="#" className="hover:text-pink-600 transition">Facebook</Link>
-            <Link href="#" className="hover:text-pink-600 transition">Instagram</Link>
-            <Link href="#" className="hover:text-pink-600 transition">TikTok</Link>
+            <Link href="https://www.facebook.com/profile.php?id=100064039845379&mibextid=ZbWKwL" className="hover:text-pink-600 transition">Facebook</Link>
+            <Link href="https://www.instagram.com/shoppingmartby_zem?igsh=MWswZzU1MzhtNjZ3aQ==" className="hover:text-pink-600 transition">Instagram</Link>
           </div>
         </div>
       </div>
