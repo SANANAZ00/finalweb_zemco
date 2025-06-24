@@ -8,6 +8,7 @@ interface Product {
   id: string;
   title: string;
   image: string;
+  imageUrl?: string;
   price: string;
   category: string;
 }
