@@ -91,7 +91,7 @@ export default function CartPage() {
           </div>
 
           <div className="mt-8 max-w-xl mx-auto bg-gray-100 p-6 rounded-lg text-center shadow">
-            <p className="text-xl font-semibold text-gray-800">Total: <span className="text-pink-600">${totalPrice.toFixed(2)}</span></p>
+            <p className="text-xl font-semibold text-gray-800">Total: <span className="text-pink-600">Rs. {totalPrice.toFixed(2)}</span></p>
             <button className="mt-4 px-6 py-2 bg-pink-600 text-white font-medium rounded hover:bg-pink-700 transition">
               Proceed to Checkout
             </button>

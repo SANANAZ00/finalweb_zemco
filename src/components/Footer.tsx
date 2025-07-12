@@ -33,7 +33,7 @@ export default function Footer() {
           <h4 className="text-lg font-semibold mb-3">Contact Us</h4>
           <ul className="text-sm space-y-2">
             <li>Email: ifrahzemco@gmail.com</li>
-            <li>Phone: +92 331 3358538</li>
+            <li>Phone: +92 335 0815545</li>
             <li>Karachi, Pakistan</li>
           </ul>
         </div>
@@ -44,6 +44,7 @@ export default function Footer() {
           <div className="flex space-x-4">
             <Link href="https://www.facebook.com/profile.php?id=100064039845379&mibextid=ZbWKwL" className="hover:text-pink-600 transition">Facebook</Link>
             <Link href="https://www.instagram.com/shoppingmartby_zem?igsh=MWswZzU1MzhtNjZ3aQ==" className="hover:text-pink-600 transition">Instagram</Link>
+            <Link href="https://wa.me/923350815545" className="hover:text-pink-600 transition">WhatsApp</Link>
           </div>
         </div>
       </div>

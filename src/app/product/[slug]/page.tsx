@@ -9,13 +9,13 @@ const productData: Record<string, any> = {
     title: 'Luxury Blush',
     image: '/blush.jpg',
     description: 'Smooth, blendable blush for radiant cheeks.',
-    price: '$19.99',
+    price: 'Rs. 1,499',
   },
   jewellery: {
     title: 'Elegant Jewellery',
     image: '/jewellery.jpg',
     description: 'Shimmering pieces that elevate your look.',
-    price: '$49.99',
+    price: 'Rs. 2,299',
   },
   // Add more...
 };

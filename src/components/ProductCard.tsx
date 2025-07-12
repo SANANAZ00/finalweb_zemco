@@ -87,7 +87,7 @@ export default function ProductCard({ product }: ProductCardProps) {
        
         <div className="p-4 space-y-1">
           <h3 className="text-lg font-semibold text-gray-800">{product.title}</h3>
-          <p className="text-pink-600 font-bold text-md">{typeof product.price === 'number' ? `$${product.price}` : product.price}</p>
+          <p className="text-pink-600 font-bold text-md">{typeof product.price === 'number' ? `Rs. ${product.price}` : product.price}</p>
 
           {/* Static rating stars */}
           <div className="flex gap-1 text-yellow-400 text-sm">
@@ -121,7 +121,7 @@ export default function ProductCard({ product }: ProductCardProps) {
             <Dialog.Title className="text-lg font-semibold">{product.title}</Dialog.Title>
             <Image src={product.imageUrl || product.image || '/placeholder.jpg'} alt={product.title} width={400} height={300} className="rounded" />
             <p className="text-gray-600 text-sm">Category: <span className="capitalize">{product.category}</span></p>
-            <p className="text-pink-600 text-lg font-bold">{typeof product.price === 'number' ? `$${product.price}` : product.price}</p>
+            <p className="text-pink-600 text-lg font-bold">{typeof product.price === 'number' ? `Rs. ${product.price}` : product.price}</p>
             <button
               onClick={() => {
                 addToCart();

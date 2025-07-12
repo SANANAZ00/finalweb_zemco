@@ -223,7 +223,7 @@ function CartDrawer({ onClose }: { onClose: () => void }) {
                 />
                 <div className="flex-1">
                   <h3 className="font-semibold text-gray-800">{item.title}</h3>
-                  <p className="text-gray-600 text-sm">Price: ${item.price}</p>
+                  <p className="text-gray-600 text-sm">Price: Rs. {item.price}</p>
                 </div>
                 <button
                   onClick={() => removeFromCart(index)}
@@ -241,7 +241,7 @@ function CartDrawer({ onClose }: { onClose: () => void }) {
           <div className="mt-4 pt-4 border-t border-gray-200 flex justify-between items-center">
             <span className="text-lg font-bold text-gray-800">Total:</span>
             <span className="text-lg font-bold text-pink-600">
-              ${cart.reduce((sum, item) => {
+              Rs. {cart.reduce((sum, item) => {
                 let price = item.price;
                 if (typeof price === 'string') {
                   price = parseFloat(price.replace(/[^0-9.-]/g, '')) || 0;

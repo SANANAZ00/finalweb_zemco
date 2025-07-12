@@ -17,9 +17,9 @@ interface Props {
 }
 
 const allProducts: Product[] = [
-  { id: 'blush', title: 'Luxury Blush', image: '/blush.jpg', price: '$19.99', category: 'makeup' },
-  { id: 'jewellery', title: 'Elegant Jewellery', image: '/jewellery.jpg', price: '$49.99', category: 'jewelry' },
-  { id: 'hair', title: 'Hair Serum', image: '/hair.jpg', price: '$24.99', category: 'skincare' },
+  { id: 'blush', title: 'Luxury Blush', image: '/blush.jpg', price: 'Rs. 1,499', category: 'makeup' },
+  { id: 'jewellery', title: 'Elegant Jewellery', image: '/jewellery.jpg', price: 'Rs. 2,299', category: 'jewelry' },
+  { id: 'hair', title: 'Hair Serum', image: '/hair.jpg', price: 'Rs. 1,099', category: 'skincare' },
   // more...
 ];
 

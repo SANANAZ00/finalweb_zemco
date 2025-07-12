@@ -14,7 +14,7 @@ export default function AdminDashboardPage() {
         />
         <DashboardCard
           title="Revenue"
-          value="$18,730"
+          value="Rs. 18,730"
           icon={<DollarSign />}
         />
         <DashboardCard
