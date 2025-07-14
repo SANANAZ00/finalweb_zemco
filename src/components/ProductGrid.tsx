@@ -17,9 +17,9 @@ interface Props {
 }
 
 const allProducts: Product[] = [
-  { id: 'blush', title: 'Luxury Blush', image: '/blush.jpg', category: 'makeup' },
-  { id: 'jewellery', title: 'Elegant Jewellery', image: '/necklace_set.jpeg', category: 'jewellery' },
-  { id: 'hair', title: 'Hot Air Brush Dryer', image: '/hair.jpg',  category: 'hair' },
+  { id: 'blush', title: 'Luxury Blush', image: '/blush.jpg', category: 'makeup', price: '' },
+  { id: 'jewellery', title: 'Elegant Jewellery', image: '/necklace_set.jpeg', category: 'jewellery', price: '' },
+  { id: 'hair', title: 'Hot Air Brush Dryer', image: '/hair.jpg',  category: 'hair', price: '' },
   // more...
 ];
 
