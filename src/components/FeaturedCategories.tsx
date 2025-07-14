@@ -6,7 +6,7 @@ const categories = [
   { name: 'Skincare', image: '/skincare.jpg', link: '/shop?category=skincare' },
   { name: 'Hair', image: '/hair.jpg', link: '/shop?category=hair' },
   { name: 'Bags', image: '/bag.jpg', link: '/shop?category=bags' },
-  { name: 'Jewelry', image: '/jewellery.jpg', link: '/shop?category=jewelry' },
+  { name: 'Jewellery', image: '/bangles.jpeg', link: '/shop?category=jewelry' },
 ];
 
 export default function FeaturedCategories({ id }: { id?: string }) {

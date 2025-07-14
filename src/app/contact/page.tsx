@@ -7,7 +7,7 @@ export default function ContactPage() {
       </p>
       <ul className="mb-4 text-gray-600">
         <li>Email: ifrahzemco@gmail.com</li>
-        <li>Phone: +92 331 3358538</li>
+        <li>Phone: +92 335 0815545</li>
         <li>Location: Karachi, Pakistan</li>
       </ul>
     </main>
